@@ -27,7 +27,7 @@ _tasks:
     } %}
     copier copy {{ templates[project_type] }} {{ destination_folder_name }}
   # After copying, create a new file with some content in an OS-agnostic way.
-  - python -c "from pathlib import Path; Path('{{ destination_folder_name }}', 'POST_GENERATION.md').write_text('# Post-Generation Notes\n')"
+  # - python -c "from pathlib import Path; Path('{{ destination_folder_name }}', 'POST_GENERATION.md').write_text('# Post-Generation Notes\n')"
 
 # This special key tells Copier not to create any files from this template itself.
 # This is crucial because this template's only job is to run a task, not to
