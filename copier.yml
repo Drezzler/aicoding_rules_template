@@ -21,7 +21,7 @@ _tasks:
   # This is a single command, but we use Jinja to make it dynamic.
   - >
     {% set templates = {
-      'vibe_coding': 'https://github.com/your-org/vibe-coding-template.git',
+      'vibe_coding': 'https://github.com/Bhartendu-Kumar/rules_template.git',
       'fastapi_service': 'https://github.com/your-org/fastapi-template.git',
       'data_science_notebook': 'https://github.com/your-org/datasci-template.git'
     } %}̥
