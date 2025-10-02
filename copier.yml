@@ -1,0 +1,33 @@
+# FILE: project-starters/copier.yml
+
+# Question 1: Ask which project template to use.
+project_type:
+  type: str
+  help: "What type of project do you want to create?"
+  choices:
+    - vibe_coding
+    - fastapi_service
+    - data_science_notebook
+
+# Question 2: Ask for the name of the *new* project folder.
+# We will use this in the task below.
+destination_folder_name:
+  type: str
+  help: "What is the name of the new project folder to be created?"
+  default: "my-new-project"
+
+# This special key tells Copier to run commands *after* all questions are answered.
+_tasks:
+  # This is a single command, but we use Jinja to make it dynamic.
+  - >
+    {% set templates = {
+      'vibe_coding': 'https://github.com/your-org/vibe-coding-template.git',
+      'fastapi_service': 'https://github.com/your-org/fastapi-template.git',
+      'data_science_notebook': 'https://github.com/your-org/datasci-template.git'
+    } %}̥
+    copier copy {{ templates[project_type] }} {{ destination_folder_name }}
+
+# This special key tells Copier not to create any files from this template itself.
+# This is crucial because this template's only job is to run a task, not to
+# generate files. Without this, you might get an empty folder.
+_templates_suffix: .jinja-disabled'
