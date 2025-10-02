@@ -25,7 +25,9 @@ _tasks:
       'fastapi_service': 'https://github.com/your-org/fastapi-template.git',
       'data_science_notebook': 'https://github.com/your-org/datasci-template.git'
     } %}
-  copier copy {{ templates[project_type] }} {{ destination_folder_name }} --trust
+    copier copy {{ templates[project_type] }} {{ destination_folder_name }}
+  # After copying, create a new file with some content.
+  # - echo "# Post-Generation Notes" > {{ destination_folder_name }}/POST_GENERATION.md
 
 # This special key tells Copier not to create any files from this template itself.
 # This is crucial because this template's only job is to run a task, not to
